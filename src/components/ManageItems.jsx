@@ -18,7 +18,7 @@ const ManageItems = () => {
           return;
         }
 
-        const response = await axios.get('http://localhost:5000/api/user/items', {
+        const response = await axios.get('https://campusbackend-production.up.railway.app/api/user/items', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -40,7 +40,7 @@ const ManageItems = () => {
         return;
       }
   
-      const response = await axios.delete(`http://localhost:5000/api/user/item/${itemId}`, {
+      const response = await axios.delete(`https://campusbackend-production.up.railway.app/api/user/item/${itemId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -71,7 +71,7 @@ const ManageItems = () => {
         <div className="items-grid">
           {userItems.map(item => (
             <div key={item._id} className="manage-item-card">
-              <img src={`http://localhost:5000/${item.images[0]}`} alt={item.name} />
+              <img src={`https://campusbackend-production.up.railway.app/${item.images[0]}`} alt={item.name} />
               <div className="item-details">
                 <h3>{item.name}</h3>
                 <p>Category: {item.category}</p>

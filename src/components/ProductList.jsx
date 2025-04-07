@@ -24,7 +24,7 @@ const ProductList = () => {
 
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/products');
+        const response = await axios.get('https://campusbackend-production.up.railway.app/api/products');
         setProducts(response.data);
         setFilteredProducts(response.data);
       } catch (error) {
@@ -79,7 +79,7 @@ const ProductList = () => {
               {productsByCategory[category].map((product) => (
                 <div className="product-card" key={product._id}>
                   <Link to={`/product/${product._id}`}>
-                    <img src={`http://localhost:5000${product.images[0]}`} alt={product.name} className="product-image" />
+                    <img src={`https://campusbackend-production.up.railway.app${product.images[0]}`} alt={product.name} className="product-image" />
                     <h3>{product.name}</h3>
                     <p>Ksh {product.price}</p>
                   </Link>

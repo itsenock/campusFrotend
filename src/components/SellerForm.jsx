@@ -108,7 +108,7 @@ const SellerForm = ({ onAddProduct }) => {
       });
 
       const response = await axios.post(
-        'http://localhost:5000/api/user/item',
+        'https://campusbackend-production.up.railway.app/api/user/item',
         formData,
         {
           headers: {

@@ -31,7 +31,7 @@ const UserProfile = () => {
           setLoading(false);
           return;
         }
-        const response = await axios.get('http://localhost:5000/api/auth/me', {
+        const response = await axios.get('https://campusbackend-production.up.railway.app/api/auth/me', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUserData(response.data);
@@ -66,7 +66,7 @@ const UserProfile = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.put(
-        'http://localhost:5000/api/auth/update',
+        'https://campusbackend-production.up.railway.app/api/auth/update',
         { [editingField]: editValue },
         {
           headers: {
@@ -102,7 +102,7 @@ const UserProfile = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        'http://localhost:5000/api/auth/change-password',
+        'https://campusbackend-production.up.railway.app/api/auth/change-password',
         {
           old_password: oldPassword,
           new_password: newPassword,
@@ -147,7 +147,7 @@ const UserProfile = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.delete(
-        'http://localhost:5000/api/auth/delete-account',
+        'https://campusbackend-production.up.railway.app/api/auth/delete-account',
         {
           headers: { Authorization: `Bearer ${token}` },
         }

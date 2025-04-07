@@ -59,7 +59,7 @@ const Checkout = () => {
       const token = localStorage.getItem('token');
       if (token) {
         axios
-          .get('http://localhost:5000/api/auth/me', {
+          .get('https://campusbackend-production.up.railway.app/api/auth/me', {
             headers: { Authorization: `Bearer ${token}` },
           })
           .then((response) => {
@@ -80,7 +80,7 @@ const Checkout = () => {
   const handlePaystackSuccessAction = (reference) => {
     axios
       .post(
-        'http://localhost:5000/api/verify-payment',
+        'https://campusbackend-production.up.railway.app/api/verify-payment',
         {
           reference: reference.reference,
           item_id: checkoutItems[0]?._id, // Use optional chaining to avoid undefined error
@@ -170,7 +170,7 @@ const Checkout = () => {
                 <img
                   src={
                     item.images && item.images.length > 0
-                      ? `http://localhost:5000/${item.images[0]}`
+                      ? `https://campusbackend-production.up.railway.app/${item.images[0]}`
                       : '/path/to/default-image.jpg'
                   }
                   alt={item.name}

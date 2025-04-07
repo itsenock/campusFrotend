@@ -11,7 +11,7 @@ const ApproveItems = () => {
     const fetchPendingItems = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5000/api/admin/items/pending', {
+        const response = await axios.get('https://campusbackend-production.up.railway.app/api/admin/items/pending', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setItems(response.data);
@@ -29,7 +29,7 @@ const ApproveItems = () => {
   const handleApprove = async (itemId) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.post(`http://localhost:5000/api/admin/items/approve/${itemId}`, {}, {
+      await axios.post(`https://campusbackend-production.up.railway.app/api/admin/items/approve/${itemId}`, {}, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setItems(items.filter(item => item._id !== itemId));
@@ -41,7 +41,7 @@ const ApproveItems = () => {
   const handleReject = async (itemId) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.post(`http://localhost:5000/api/admin/items/reject/${itemId}`, {}, {
+      await axios.post(`https://campusbackend-production.up.railway.app/api/admin/items/reject/${itemId}`, {}, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setItems(items.filter(item => item._id !== itemId));
@@ -61,7 +61,7 @@ const ApproveItems = () => {
       ) : (
         items.map(item => (
           <div key={item._id} style={{ border: '1px solid gray', padding: '10px', margin: '10px' }}>
-            <img src={`http://localhost:5000${item.images[0]}`} alt={item.name} style={{ width: '200px' }} />
+            <img src={`https://campusbackend-production.up.railway.app${item.images[0]}`} alt={item.name} style={{ width: '200px' }} />
             <h3>{item.name}</h3>
             <p>{item.description}</p>
             <button onClick={() => handleApprove(item._id)}>Approve</button>
