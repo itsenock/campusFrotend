@@ -1,0 +1,24 @@
+/* src/components/PaymentStatus.css */
+
+.payment-status {
+    text-align: center;
+    padding: 50px;
+  }
+  
+  .payment-status.success {
+    color: green;
+  }
+  
+  .payment-status.failure {
+    color: red;
+  }
+  
+  .payment-status h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .payment-status p {
+    font-size: 1.2em;
+  }
+  
