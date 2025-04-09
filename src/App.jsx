@@ -22,7 +22,8 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import ViewLoggedInUsers from './admin/ViewLoggedInUsers';
 import Transactions from './admin/Transactions';
 import ApproveItems from './admin/ApproveItems';
-import AdminItems from './admin/AdminItems'; 
+import AdminItems from './admin/AdminItems';
+import Maintenance from './components/Maintenance';
 import './App.css';
 
 
@@ -47,41 +48,52 @@ function App() {
   const addProductToList = (product) => {
     setProducts([...products, product]);
   };
+  const isUnderMaintenance = true; 
 
   return (
     <CartProvider>
       <Router>
         <ErrorBoundary>
-          <Navbar />
-          <div className="content">
+          {isUnderMaintenance ? (
+            // Only show Maintenance page
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/products" element={<ProductList products={products} />} />
-              <Route path="/login" element={<LoginForm />} />
-              <Route path="/register" element={<LoginForm />} />
-              <Route path="/product/:id" element={<ProductDetails products={products} />} /> {/* Pass products as props */}
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/checkout" element={<Checkout />} />
-              <Route path="/sell" element={<SellerForm onAddProduct={addProductToList} />} />
-              <Route path="/profile" element={<UserProfile />} />   
-              <Route path="/manage-items" element={<ManageItems />} /> 
-              <Route path="/payment-success" element={<PaymentSuccess />} />
-              <Route path="/payment-failure" element={<PaymentFailure />} />
-              <Route path="/about" element={<AboutUs />} />
-              <Route path="/contact" element={<ContactUs />} />
-              <Route path="/terms" element={<TermsOfService />} />
-              <Route path="/privacy" element={<PrivacyPolicy />} />
-              <Route path="/approve" element={<ApproveItems />} />
-              <Route path="/users" element={<ViewLoggedInUsers />} />
-              <Route path="/transactions" element={<Transactions/>} />
-              <Route path="items" element={<AdminItems />} />
+              <Route path="*" element={<Maintenance />} />
             </Routes>
-          </div>
-          <Footer />
+          ) : (
+            <>
+              <Navbar />
+              <div className="content">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/products" element={<ProductList products={products} />} />
+                  <Route path="/login" element={<LoginForm />} />
+                  <Route path="/register" element={<LoginForm />} />
+                  <Route path="/product/:id" element={<ProductDetails products={products} />} />
+                  <Route path="/cart" element={<Cart />} />
+                  <Route path="/checkout" element={<Checkout />} />
+                  <Route path="/sell" element={<SellerForm onAddProduct={addProductToList} />} />
+                  <Route path="/profile" element={<UserProfile />} />
+                  <Route path="/manage-items" element={<ManageItems />} />
+                  <Route path="/payment-success" element={<PaymentSuccess />} />
+                  <Route path="/payment-failure" element={<PaymentFailure />} />
+                  <Route path="/about" element={<AboutUs />} />
+                  <Route path="/contact" element={<ContactUs />} />
+                  <Route path="/terms" element={<TermsOfService />} />
+                  <Route path="/privacy" element={<PrivacyPolicy />} />
+                  <Route path="/approve" element={<ApproveItems />} />
+                  <Route path="/users" element={<ViewLoggedInUsers />} />
+                  <Route path="/transactions" element={<Transactions />} />
+                  <Route path="/items" element={<AdminItems />} />
+                </Routes>
+              </div>
+              <Footer />
+            </>
+          )}
         </ErrorBoundary>
       </Router>
     </CartProvider>
   );
+  
 }
 
 export default App;
