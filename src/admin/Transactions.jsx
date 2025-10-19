@@ -11,7 +11,7 @@ const Transactions = () => {
     const fetchTransactions = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('https://campusbackend-production.up.railway.app/api/admin/transactions', {
+        const response = await axios.get('https://campusbackend-fk2p.onrender.com/api/admin/transactions', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setTransactions(response.data);
