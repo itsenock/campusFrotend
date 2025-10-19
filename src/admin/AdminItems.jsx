@@ -11,7 +11,7 @@ const AdminItems = () => {
   const fetchItems = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('https://campusbackend-production.up.railway.app/api/admin/items', {
+      const response = await axios.get('https://campusbackend-fk2p.onrender.com/api/admin/items', {
         headers: { Authorization: `Bearer ${token}` },
       });
       // The response should include keys 'bought_items' and 'unbought_items'
@@ -31,7 +31,7 @@ const AdminItems = () => {
   const handleRemoveItem = async (itemId) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`https://campusbackend-production.up.railway.app/api/admin/item/${itemId}`, {
+      await axios.delete(`https://campusbackend-fk2p.onrender.com/api/admin/item/${itemId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       // Remove the item from both lists
@@ -58,7 +58,7 @@ const AdminItems = () => {
             {unboughtItems.map(item => (
               <div key={item._id} className="item-card">
                 {item.images && item.images.length > 0 ? (
-                  <img src={`https://campusbackend-production.up.railway.app${item.images[0]}`} alt={item.name} />
+                  <img src={`https://campusbackend-fk2p.onrender.com${item.images[0]}`} alt={item.name} />
                 ) : (
                   <div className="placeholder-image">No Image</div>
                 )}
@@ -84,7 +84,7 @@ const AdminItems = () => {
             {boughtItems.map(item => (
               <div key={item._id} className="item-card">
                 {item.images && item.images.length > 0 ? (
-                  <img src={`https://campusbackend-production.up.railway.app${item.images[0]}`} alt={item.name} />
+                  <img src={`https://campusbackend-fk2p.onrender.com${item.images[0]}`} alt={item.name} />
                 ) : (
                   <div className="placeholder-image">No Image</div>
                 )}
