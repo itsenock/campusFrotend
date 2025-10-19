@@ -48,7 +48,7 @@ function App() {
   const addProductToList = (product) => {
     setProducts([...products, product]);
   };
-  const isUnderMaintenance = true; 
+  const isUnderMaintenance = false; 
 
   return (
     <CartProvider>
