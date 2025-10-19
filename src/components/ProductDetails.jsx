@@ -65,7 +65,7 @@ const ProductDetails = ({ products }) => {
             {product.images.map((image, index) => (
               <img
                 key={index}
-                src={`https://campusbackend-production.up.railway.app/${image}`}
+                src={`https://campusbackend-fk2p.onrender.com/${image}`}
                 alt={`${product.name} ${index + 1}`}
                 onClick={() => setMainImage(`https://campusbackend-fk2p.onrender.com/${image}`)}
               />
