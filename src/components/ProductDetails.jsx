@@ -18,14 +18,14 @@ const ProductDetails = ({ products }) => {
       const productData = products.find((product) => product._id === id);
       if (productData) {
         setProduct(productData);
-        setMainImage(`https://campusbackend-production.up.railway.app/${productData.images[0]}`);
+        setMainImage(`https://campusbackend-fk2p.onrender.com/${productData.images[0]}`);
       } else {
         const fetchProduct = async () => {
           try {
-            const response = await axios.get(`https://campusbackend-production.up.railway.app/api/product/${id}`);
+            const response = await axios.get(`https://campusbackend-fk2p.onrender.com/api/product/${id}`);
             const productData = response.data;
             setProduct(productData);
-            setMainImage(`https://campusbackend-production.up.railway.app/${productData.images[0]}`);
+            setMainImage(`https://campusbackend-fk2p.onrender.com/${productData.images[0]}`);
           } catch (error) {
             console.error('Error fetching product:', error);
           }
@@ -67,7 +67,7 @@ const ProductDetails = ({ products }) => {
                 key={index}
                 src={`https://campusbackend-production.up.railway.app/${image}`}
                 alt={`${product.name} ${index + 1}`}
-                onClick={() => setMainImage(`https://campusbackend-production.up.railway.app/${image}`)}
+                onClick={() => setMainImage(`https://campusbackend-fk2p.onrender.com/${image}`)}
               />
             ))}
           </div>
